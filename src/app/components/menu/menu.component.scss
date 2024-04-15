@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  background-color: #545454;
+  padding: 14px;
+  padding-right: 0;
+
+  span {
+    color: #ffffff;
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    padding: 14px;
+    a,
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+:host ::ng-deep .p-accordion:hover {
+  .pi-angle-down, .pi-angle-up {
+    display: inline;
+    color: white;
+  }
+}
+
+:host ::ng-deep .p-accordion {
+  font-family: Inter;
+  font-size: 12px;
+  line-height: 14.52px;
+  text-align: left;
+  font-weight: 700 !important;
+
+
+  .p-accordion-content {
+    background-color: inherit;
+    border: none;
+    font-weight: 400;
+    padding: 1rem 2rem;
+
+    :not(:last-child) {
+      .item {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .p-accordion-header-link {
+    background: none;
+    padding: 0;
+    border: none;
+  }
+
+  .p-accordion-tab {
+    margin: .5rem 0;
+  }
+
+  .pi-angle-down,
+  .pi-angle-up {
+    display: none;
+    color: #ffffff;
+  }
+}
+
+// .content {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .main {
+//   padding: 1rem;
+//   overflow-y: auto;
+//   background-color: aqua;
+// }

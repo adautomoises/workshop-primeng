@@ -1,5 +1,7 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @layer reset, primeng;
 
@@ -9,4 +11,11 @@
       box-shadow: none;
     }
   }
+  body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
 }
+
+@import 'sass/components/p-accordion';

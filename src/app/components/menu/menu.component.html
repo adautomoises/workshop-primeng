@@ -1,0 +1,42 @@
+<body>
+  <section class="navbar">
+    <p-accordion [activeIndex]="[0]" expandIcon="pi pi-angle-down" collapseIcon="pi pi-angle-up">
+      <div *ngFor="let menu of menus">
+        <div *ngIf="menu.itens?.length! > 0; then accordion; else not_accordion"></div>
+
+        <ng-template #accordion>
+          <p-accordionTab iconPos="end">
+            <ng-template pTemplate="header">
+              <img [src]="'../../../assets/icons/' + menu.icon + '.svg'" [alt]="menu.icon"/>
+              <span>{{ menu.value }}</span>
+            </ng-template>
+            <ng-template pTemplate="content">
+              <div *ngFor="let item of menu.itens">
+                <div *ngIf="item.itens?.length! > 0">
+                  <div *ngFor="let item of item.itens">
+                    <a class="item" [routerLink]="[item.link]" routerLinkActive="router-link-active" (click)="opcaoNaoImplementada()">
+                      {{ item.value }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-accordionTab>
+        </ng-template>
+
+        <ng-template #not_accordion>
+          <a [routerLink]="[menu.link]" routerLinkActive="router-link-active" (click)="opcaoNaoImplementada()">
+            <img [src]="'../../../assets/icons/' + menu.icon + '.svg'" [alt]="menu.icon"/>
+            <span>{{ menu.value }}</span>
+          </a>
+        </ng-template>
+      </div>
+    </p-accordion>
+  </section>
+  <!-- <section class="content">
+    <header></header>
+    <main class="main">
+      <router-outlet />
+    </main>
+  </section> -->
+</body>
