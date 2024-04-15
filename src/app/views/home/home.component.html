@@ -1,0 +1,9 @@
+<app-table-custom
+  #tabela
+  [dados]="['id', 'title', 'category']"
+  [colunas]="['Identificador','Nome','Categoria']"
+  [elementos]="elementos"
+  [total]="total"
+  (onPageChange)="onPageChange($event)"
+>
+</app-table-custom>

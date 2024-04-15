@@ -1,20 +1,24 @@
 <p-table
   [value]="elementos"
+  [totalRecords]="total"
   [tableStyle]="{ 'min-width': '50rem' }"
   [paginator]="true"
-  [rows]="5"
+  [rows]="10"
   [showCurrentPageReport]="true"
+  currentPageReportTemplate="Elementos {first} à {last} com total de {totalRecords}"
   [rowsPerPageOptions]="[5, 10, 20]"
-  (onLazyLoad)="filter()"
+  (onPage)="pageChange($event)"
+  [lazy]="true"
+  pageLinks="3"
   >
   <ng-template pTemplate="header">
       <tr>
-        <td>Coluna</td>
+        <th *ngFor="let coluna of colunas">{{coluna}}</th>
       </tr>
   </ng-template>
   <ng-template pTemplate="body" let-elemento>
       <tr>
-          <td>{{ elemento.id }}</td>
+          <td *ngFor="let dado of dados">{{ elemento[dado] }}</td>
       </tr>
   </ng-template>
 </p-table>
