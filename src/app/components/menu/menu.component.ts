@@ -19,6 +19,7 @@ interface MenuItem {
 })
 export class MenuComponent implements OnInit {
   menus: MenuItem[] = [];
+  hidden: boolean = true;
 
   constructor(
     private messageService: MessageService
@@ -30,6 +31,13 @@ export class MenuComponent implements OnInit {
 
   opcaoNaoImplementada(){
     this.messageService.add({severity: 'error', detail: 'Opção não implementada'});
+  }
+
+  onMouseMove(){
+    const body = document.querySelector('body');
+    body?.addEventListener('mousemove', (event: any) => {
+      event.target.closest('#navbar-container') ? this.hidden = false : this.hidden = true;
+    })
   }
 
   preencheMenus(): MenuItem[] {

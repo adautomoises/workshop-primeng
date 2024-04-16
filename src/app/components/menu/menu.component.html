@@ -1,7 +1,8 @@
 <body>
-  <section class="navbar">
-    <p-accordion [activeIndex]="[0]" expandIcon="pi pi-angle-down" collapseIcon="pi pi-angle-up">
-      <div *ngFor="let menu of menus">
+  <div [ngClass]="{'navbar-ghost' : !hidden}"></div>
+  <section id="navbar-container" class="navbar" [ngClass]="{'collapsed' : hidden}" (mousemove)="onMouseMove()">
+    <p-accordion  expandIcon="pi pi-sort-down-fill" collapseIcon="pi pi-sort-up-fill">
+      <div *ngFor="let menu of menus" [ngClass]="{'collapsed' : hidden}">
         <div *ngIf="menu.itens?.length! > 0; then accordion; else not_accordion"></div>
 
         <ng-template #accordion>
@@ -33,10 +34,10 @@
       </div>
     </p-accordion>
   </section>
-  <!-- <section class="content">
+  <section class="content">
     <header></header>
     <main class="main">
       <router-outlet />
     </main>
-  </section> -->
+  </section>
 </body>
