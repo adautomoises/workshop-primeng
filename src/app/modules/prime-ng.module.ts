@@ -4,6 +4,8 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 import { ToastModule } from 'primeng/toast';
+import { BadgeModule } from 'primeng/badge';
+import { MenuModule } from 'primeng/menu';
 
 @NgModule({
   declarations: [],
@@ -13,6 +15,8 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     AccordionModule,
     ToastModule,
+    BadgeModule,
+    MenuModule,
   ],
   exports: [
     CommonModule,
@@ -20,6 +24,8 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     AccordionModule,
     ToastModule,
+    BadgeModule,
+    MenuModule,
   ]
 })
 export class PrimeNGModule { }

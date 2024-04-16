@@ -35,7 +35,32 @@
     </p-accordion>
   </section>
   <section class="content">
-    <header></header>
+    <header class="header">
+      <span class="titulo-header">
+        {{tituloPagina}}
+      </span>
+
+      <div class="acoes-header">
+        <span class="p-input-icon-right" (click)="opcaoNaoImplementada()">
+          <i class="pi pi-search"></i>
+          <input type="text" class="input-header" placeholder="Posto"/>
+        </span>
+
+        <app-icon-button-custom titulo="Alerta" icone="alerta" [badge]="badgeAlerta" (onclick)="opcaoNaoImplementada()"></app-icon-button-custom>
+        <app-icon-button-custom titulo="Notificação" icone="notificacao" [badge]="badgeNotificacao" (onclick)="opcaoNaoImplementada()"></app-icon-button-custom>
+
+        <div class="menu-header">
+          <span class="menu-usuario-nome">
+            {{ nomeUsuario }}
+          </span>
+          <p-menu #menu [model]="menuUsuario" [popup]="true"></p-menu>
+          <p-button class="menu-usuario-button" outlined="true" rounded="true" (onClick)="menu.toggle($event)">
+            <img src="../../../assets/icons/icone-usuario.svg" alt="Icone de Usuário">
+          </p-button>
+        </div>
+      </div>
+    </header>
+
     <main class="main">
       <router-outlet />
     </main>

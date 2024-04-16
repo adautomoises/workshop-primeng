@@ -1,0 +1,16 @@
+:host ::ng-deep .p-button {
+  border: 0;
+  border-radius: 100%;
+  padding: 1rem;
+}
+
+.button-container {
+  position: relative;
+}
+
+
+.badge-container {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}

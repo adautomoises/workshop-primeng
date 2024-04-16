@@ -1,0 +1,7 @@
+<p-button class="button-container" [outlined]="true" (onClick)="onClick()">
+  <span class="badge-container" *ngIf="badge">
+    <p-badge [value]="badge.toString()" severity="danger"></p-badge>
+  </span>
+
+  <img [src]="buscarIcone(icone)" [alt]="'Icone de '+ titulo">
+</p-button>

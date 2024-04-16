@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { PrimeNGModule } from '../../modules/prime-ng.module';
 import { MessageService } from 'primeng/api';
+import { IconButtonCustomComponent } from '../icon-button-custom/icon-button-custom.component';
 
 interface MenuItem {
   value?: string;
@@ -10,16 +11,27 @@ interface MenuItem {
   itens?: MenuItem[];
 }
 
+interface MenuUsuario {
+  label: string;
+  icon: string;
+  command: () => void;
+}
+
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, PrimeNGModule],
+  imports: [RouterOutlet, RouterLink, PrimeNGModule, IconButtonCustomComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent implements OnInit {
-  menus: MenuItem[] = [];
   hidden: boolean = true;
+  menus: MenuItem[] = [];
+  badgeAlerta: number = 1;
+  badgeNotificacao: number = 5;
+  tituloPagina: string = '';
+  nomeUsuario: string = 'Joaquim Bezerra';
+  menuUsuario: MenuUsuario[] = [];
 
   constructor(
     private messageService: MessageService
@@ -27,6 +39,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.menus = this.preencheMenus();
+    this.menuUsuario = this.preencheMenuUsuario();
   }
 
   opcaoNaoImplementada(){
@@ -38,6 +51,48 @@ export class MenuComponent implements OnInit {
     body?.addEventListener('mousemove', (event: any) => {
       event.target.closest('#navbar-container') ? this.hidden = false : this.hidden = true;
     })
+  }
+
+  public setNomeUsuario(value: string){
+    this.nomeUsuario = value;
+  }
+
+  public setTituloPagina(value: string){
+    this.tituloPagina = value;
+  }
+
+  public setbadgeAlerta(value: number){
+    this.badgeAlerta = value;
+  }
+
+  public setbadgeNotificacao(value: number){
+    this.badgeNotificacao = value;
+  }
+
+  preencheMenuUsuario(): MenuUsuario[] {
+    return [
+      {
+        label: 'Minha Conta',
+        icon: 'pi pi-user',
+        command: () => {
+          this.opcaoNaoImplementada();
+        }
+      },
+      {
+        label: 'Alterar Senha',
+        icon: 'pi pi-lock',
+        command: () => {
+          this.opcaoNaoImplementada();
+        }
+      },
+      {
+        label: 'Sair',
+        icon: 'pi pi-sign-out',
+        command: () => {
+          this.opcaoNaoImplementada();
+        }
+      },
+    ];
   }
 
   preencheMenus(): MenuItem[] {
